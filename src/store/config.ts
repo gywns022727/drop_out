@@ -1,17 +1,14 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage/session";
 import { persistReducer } from "redux-persist";
-
-import counterSlice from "./slices/counterSlice";
-import userSlice from "./slices/userSlice";
-import logger from "redux-logger";
+import schoolSlice from "./slices/schoolSlice";
 
 const persistConfig = {
   key: "root",
   storage,
 };
 
-const rootReducer = combineReducers({ counter: counterSlice, user: userSlice });
+const rootReducer = combineReducers({ school: schoolSlice });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -20,7 +17,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-    }).concat(logger),
+    }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
