@@ -1,28 +1,28 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface CommonState {
-  nameValue: String;
-  numberValue: String;
+  school: String;
+  class: String;
 }
 
 const initialState: CommonState = {
-  nameValue: "",
-  numberValue: "",
+  school: "",
+  class: "",
 };
 
 const schoolSlice = createSlice({
   name: "school",
   initialState,
   reducers: {
-    SCHOOL_NAME: (state, actions: PayloadAction<String>) => {
-      state.nameValue = actions.payload;
+    SCHOOL: (state, actions: PayloadAction<String>) => {
+      state.school = actions.payload;
     },
-    SCHOOL_NUMBER: (state, actions: PayloadAction<String>) => {
-      state.numberValue = actions.payload;
+    CLASS: (state, actions: PayloadAction<String>) => {
+      state.class = actions.payload;
     },
   },
 });
 
-export const { SCHOOL_NAME, SCHOOL_NUMBER } = schoolSlice.actions;
+export const { SCHOOL, CLASS } = schoolSlice.actions;
 
 export default schoolSlice.reducer;

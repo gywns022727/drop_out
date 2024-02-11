@@ -5,7 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "../Page/Main";
 import School from "../Page/School";
-import Private from "../Page/Privacy";
+import Privacy from "../Page/Privacy";
 import Reason from "../Page/Reason";
 
 export default function index() {
@@ -18,7 +18,7 @@ export default function index() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/school" element={<School />} />
-            <Route path="/private" element={<Private />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="/reason" element={<Reason />} />
           </Routes>
         </BrowserRouter>
