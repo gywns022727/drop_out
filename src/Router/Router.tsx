@@ -7,6 +7,7 @@ import Main from "../Page/Main";
 import School from "../Page/School";
 import Privacy from "../Page/Privacy";
 import Reason from "../Page/Reason";
+import DropOut from "../Page/DropOut";
 
 export default function index() {
   const persistor = persistStore(store);
@@ -20,6 +21,7 @@ export default function index() {
             <Route path="/school" element={<School />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/reason" element={<Reason />} />
+            <Route path="/dropout" element={<DropOut />} />
           </Routes>
         </BrowserRouter>
       </PersistGate>

@@ -68,10 +68,11 @@ export default function index() {
           <input
             type="text"
             autoComplete="off"
+            autoFocus
             placeholder="이름을 입력해주세요."
             {...register("name", { required: "이름을 입력해주세요." })}
           />
-          {errors.name && <span>{errors.name.message}</span>}
+          {errors.name && <p>{errors.name.message}</p>}
         </label>
 
         <label>
@@ -91,7 +92,7 @@ export default function index() {
               },
             })}
           />
-          {errors.phone && <span>{errors.phone.message}</span>}
+          {errors.phone && <p>{errors.phone.message}</p>}
         </label>
         <button type="button" onClick={handleBack}>
           이전

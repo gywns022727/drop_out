@@ -52,10 +52,11 @@ export default function index() {
           <input
             type="text"
             autoComplete="off"
+            autoFocus
             placeholder="학교 명을 입력해주세요."
             {...register("school", { required: "학교 명을 입력해주세요." })}
           />
-          {errors.school && <span>{errors.school.message}</span>}
+          {errors.school && <p>{errors.school.message}</p>}
         </label>
 
         <label>
@@ -70,7 +71,7 @@ export default function index() {
               pattern: { value: /^[0-9]/, message: "숫자만 입력해주세요." },
             })}
           />
-          {errors.number && <span>{errors.number.message}</span>}
+          {errors.number && <p>{errors.number.message}</p>}
         </label>
         <button type="button" onClick={handleBack}>
           이전
