@@ -2,12 +2,12 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface CommonState {
   school: String;
-  class: String;
+  number: String;
 }
 
 const initialState: CommonState = {
   school: "",
-  class: "",
+  number: "",
 };
 
 const schoolSlice = createSlice({
@@ -17,12 +17,14 @@ const schoolSlice = createSlice({
     SCHOOL: (state, actions: PayloadAction<String>) => {
       state.school = actions.payload;
     },
-    CLASS: (state, actions: PayloadAction<String>) => {
-      state.class = actions.payload;
+    NUMBER: (state, actions: PayloadAction<String>) => {
+      state.number = actions.payload;
     },
   },
 });
 
-export const { SCHOOL, CLASS } = schoolSlice.actions;
+export const { SCHOOL, NUMBER } = schoolSlice.actions;
 
 export default schoolSlice.reducer;
+
+export type { CommonState };

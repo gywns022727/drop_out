@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { SCHOOL, CLASS } from "../../store/slices/schoolSlice";
+import { SCHOOL, NUMBER } from "../../store/slices/schoolSlice";
 import { RootState } from "../../store/config";
 
 type Inputs = {
@@ -25,13 +25,13 @@ export default function index() {
   useEffect(() => {
     if (schoolData) {
       setValue("school", String(schoolData.school) || "");
-      setValue("number", String(schoolData.class) || "");
+      setValue("number", String(schoolData.number) || "");
     }
   }, [schoolData, setValue]);
 
   const updateValue = () => {
     dispatch(SCHOOL(getValues("school")));
-    dispatch(CLASS(getValues("number")));
+    dispatch(NUMBER(getValues("number")));
   };
 
   const onSubmit: SubmitHandler<Inputs> = () => {

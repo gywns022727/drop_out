@@ -1,11 +1,33 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/config";
+import ExcelDownload from "../../Components/ExcelDownload";
+import schoolCommon from "../../store/slices/schoolSlice";
+import privacyCommon from "../../store/slices/privacySlice";
+import reasonCommon from "../../store/slices/reasonSlice";
+
+interface total extends schoolCommon, privacyCommon, reasonCommon {
+  school: string;
+  number: string;
+  name: string;
+  phone: string;
+  reason: string;
+}
+
+// type totla = [];
 
 export default function Index() {
-  const schoolData = useSelector((state: RootState) => state.school);
-  const privacyData = useSelector((state: RootState) => state.privacy);
-  const reasonData = useSelector((state: RootState) => state.reason);
+  const school = useSelector((state: RootState) => state.school);
+  const privacy = useSelector((state: RootState) => state.privacy);
+  const reason = useSelector((state: RootState) => state.reason);
+  const totla: total[] = [
+    { school: school.school },
+    { number: school.number },
+    { name: privacy.name },
+    { phone: privacy.phone },
+    { reason: reason.reason },
+  ];
+
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -15,14 +37,17 @@ export default function Index() {
   return (
     <div>
       <h1>자퇴신청서</h1>
-      <p>{schoolData.school}</p>
-      <p>{schoolData.class}</p>
-      <p>{privacyData.name}</p>
-      <p>{privacyData.phone}</p>
-      <p>{reasonData.reason}</p>
+      <p>{school.school}</p>
+      <p>{school.number}</p>
+      <p>{privacy.name}</p>
+      <p>{privacy.phone}</p>
+      <p>{reason.reason}</p>
       <button onClick={handleBack}>이전</button>
       <button>가져가기</button>
+      <ExcelDownload dropOutData={totla} />
       <button>주의사항(버튼이 아닌 페이지로 들어오면 pop으로 띄우기)</button>
     </div>
   );
 }
+
+export type { total };
