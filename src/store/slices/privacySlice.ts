@@ -1,11 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-interface CommonState {
-  name: String;
-  phone: String;
+interface PrivacyState {
+  name: string;
+  phone: string;
 }
 
-const initialState: CommonState = {
+const initialState: PrivacyState = {
   name: "",
   phone: "",
 };
@@ -14,10 +14,10 @@ const privacySlice = createSlice({
   name: "privacy",
   initialState,
   reducers: {
-    NAME: (state, actions: PayloadAction<String>) => {
+    NAME: (state, actions: PayloadAction<string>) => {
       state.name = actions.payload;
     },
-    PHONE: (state, actions: PayloadAction<String>) => {
+    PHONE: (state, actions: PayloadAction<string>) => {
       state.phone = actions.payload;
     },
   },
@@ -26,3 +26,5 @@ const privacySlice = createSlice({
 export const { NAME, PHONE } = privacySlice.actions;
 
 export default privacySlice.reducer;
+
+export type { PrivacyState };

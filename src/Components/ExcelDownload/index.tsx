@@ -2,7 +2,7 @@ import { CSVLink } from "react-csv";
 import { total } from "../../Page/DropOut";
 
 interface propsType {
-  dropOutData: total[];
+  dropOutData: total;
 }
 
 interface label {
