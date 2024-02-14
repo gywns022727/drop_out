@@ -4,6 +4,7 @@ import { persistReducer } from "redux-persist";
 import schoolSlice from "./slices/schoolSlice";
 import privacySlice from "./slices/privacySlice";
 import reasonSlice from "./slices/reasonSlice";
+import dropSclice from "./slices/dropSclice";
 
 const persistConfig = {
   key: "root",
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   school: schoolSlice,
   privacy: privacySlice,
   reason: reasonSlice,
+  drop: dropSclice,
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);
