@@ -11,7 +11,7 @@ export default function Index() {
   const privacy = useSelector((state: RootState) => state.privacy);
   const reason = useSelector((state: RootState) => state.reason);
   const drop = useSelector((state: RootState) => state.drop);
-  const downRef: any = useRef();
+  const downRef = useRef<HTMLDivElement | null>(null);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -23,10 +23,11 @@ export default function Index() {
 
   const downloadBtn = () => {
     const down = downRef.current;
-    console.log(down);
-    domtoimage.toBlob(down).then((props) => {
-      saveAs(props, "자되신청서.png");
-    });
+    if (down !== null) {
+      domtoimage.toBlob(down).then((props) => {
+        saveAs(props, "자퇴신청서.png");
+      });
+    }
   };
 
   const handleBack = () => {
