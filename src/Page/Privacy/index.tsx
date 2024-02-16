@@ -41,7 +41,7 @@ export default function index() {
 
   const handleBack = () => {
     updateValue();
-    navigate("/school");
+    navigate("/");
   };
 
   const autoHyphen = () => {

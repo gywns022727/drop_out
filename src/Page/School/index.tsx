@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SCHOOL, NUMBER } from "../../store/slices/schoolSlice";
 import { RootState } from "../../store/config";
+import { Container } from "./style";
+import Pigeon from "../../assets/images/pigeon.png";
 
 type Inputs = {
   school: string;
@@ -39,13 +41,13 @@ export default function index() {
     navigate("/privacy");
   };
 
-  const handleBack = () => {
-    updateValue();
-    navigate("/");
-  };
-
   return (
-    <div>
+    <Container>
+      <header>
+        {/* <img src={Pigeon} alt="Pigeon" /> */}
+        <h1>자퇴 신청서</h1>
+        <img src={Pigeon} alt="Pigeon" />
+      </header>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           <p>학교</p>
@@ -73,11 +75,8 @@ export default function index() {
           />
           {errors.number && <p>{errors.number.message}</p>}
         </label>
-        <button type="button" onClick={handleBack}>
-          이전
-        </button>
         <button type="submit">다음</button>
       </form>
-    </div>
+    </Container>
   );
 }
