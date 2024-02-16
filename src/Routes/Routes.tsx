@@ -4,7 +4,6 @@ import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalStyle from "../style/GlobalStyle";
-import Main from "../Page/Main";
 import School from "../Page/School";
 import Privacy from "../Page/Privacy";
 import Reason from "../Page/Reason";
@@ -19,8 +18,7 @@ export default function index() {
         <GlobalStyle />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/school" element={<School />} />
+            <Route path="/" element={<School />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/reason" element={<Reason />} />
             <Route path="/dropout" element={<DropOut />} />
