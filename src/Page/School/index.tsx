@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { SCHOOL, NUMBER } from "../../store/slices/schoolSlice";
 import { RootState } from "../../store/config";
 import { Container, Error } from "./style";
-import Pigeon from "../../assets/images/pigeon.png";
+import Header from "../../Components/header";
 
 type Inputs = {
   school: string;
@@ -43,11 +43,7 @@ export default function index() {
 
   return (
     <Container>
-      <header>
-        {/* <img src={Pigeon} alt="Pigeon" /> */}
-        <h1>자퇴 신청서</h1>
-        <img src={Pigeon} alt="Pigeon" />
-      </header>
+      <Header />
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           <p className="title">학교</p>

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { NAME, PHONE } from "../../store/slices/privacySlice";
 import { RootState } from "../../store/config";
+import Header from "../../Components/header";
+import { Container, Error } from "./style";
 
 type Inputs = {
   name: string;
@@ -61,7 +63,8 @@ export default function index() {
   };
 
   return (
-    <div>
+    <Container>
+      <Header />
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           <p>이름</p>
@@ -72,7 +75,7 @@ export default function index() {
             placeholder="이름을 입력해주세요."
             {...register("name", { required: "이름을 입력해주세요." })}
           />
-          {errors.name && <p>{errors.name.message}</p>}
+          {errors.name && <Error>{errors.name.message}</Error>}
         </label>
 
         <label>
@@ -92,13 +95,13 @@ export default function index() {
               },
             })}
           />
-          {errors.phone && <p>{errors.phone.message}</p>}
+          {errors.phone && <Error>{errors.phone.message}</Error>}
         </label>
         <button type="button" onClick={handleBack}>
           이전
         </button>
         <button type="submit">다음</button>
       </form>
-    </div>
+    </Container>
   );
 }
