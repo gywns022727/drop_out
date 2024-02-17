@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SCHOOL, NUMBER } from "../../store/slices/schoolSlice";
 import { RootState } from "../../store/config";
-import { Container } from "./style";
+import { Container, Error } from "./style";
 import Pigeon from "../../assets/images/pigeon.png";
 
 type Inputs = {
@@ -50,7 +50,7 @@ export default function index() {
       </header>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
-          <p>학교</p>
+          <p className="title">학교</p>
           <input
             type="text"
             autoComplete="off"
@@ -58,11 +58,11 @@ export default function index() {
             placeholder="학교 명을 입력해주세요."
             {...register("school", { required: "학교 명을 입력해주세요." })}
           />
-          {errors.school && <p>{errors.school.message}</p>}
+          {errors.school && <Error>{errors.school.message}</Error>}
         </label>
 
         <label>
-          <p>학번</p>
+          <p className="title">학번</p>
           <input
             type="text"
             inputMode="numeric"
@@ -73,7 +73,7 @@ export default function index() {
               pattern: { value: /^[0-9]/, message: "숫자만 입력해주세요." },
             })}
           />
-          {errors.number && <p>{errors.number.message}</p>}
+          {errors.number && <Error>{errors.number.message}</Error>}
         </label>
         <button type="submit">다음</button>
       </form>
