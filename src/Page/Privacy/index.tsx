@@ -67,7 +67,7 @@ export default function index() {
       <Header />
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
-          <p>이름</p>
+          <p className="title">이름</p>
           <input
             type="text"
             autoComplete="off"
@@ -79,12 +79,12 @@ export default function index() {
         </label>
 
         <label>
-          <p>전화번호</p>
+          <p className="title">전화번호</p>
           <input
             type="text"
             inputMode="numeric"
             autoComplete="off"
-            placeholder="전화번호를 입력해주세요."
+            placeholder="전화번호를 입력해주세요.(숫자만)"
             minLength={13}
             maxLength={13}
             {...register("phone", {
