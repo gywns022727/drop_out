@@ -1,6 +1,47 @@
 import styled from "styled-components";
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  > .downloadBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    background-color: #4b89dc;
+    > div {
+      p {
+        padding-bottom: 20px;
+
+        color: #fafafa;
+      }
+    }
+  }
+  > .btnBox {
+    > button {
+      margin-right: 10px;
+
+      width: 70px;
+      height: 25px;
+
+      font-size: 0.8em;
+      color: #4b89dc;
+      border: none;
+      border-radius: 2vh;
+      background-color: #fafafa;
+    }
+  }
+
+  > p {
+    padding-top: 10px;
+
+    font-size: 0.8em;
+    color: #e2e2e2;
+  }
+`;
 
 const Background = styled.div`
   position: fixed;
@@ -28,7 +69,7 @@ const PopUpBox = styled.div`
 
   padding: 10px;
 
-  width: 100%;
+  width: 380px;
 
   border: 5px solid white;
   background-color: #4b89dc;

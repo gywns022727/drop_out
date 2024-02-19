@@ -38,16 +38,18 @@ export default function Index() {
 
   return (
     <Container>
-      <Header />
-      <div ref={downRef}>
-        <p>{school.school}</p>
-        <p>{school.number}</p>
-        <p>{privacy.name}</p>
-        <p>{privacy.phone}</p>
-        <p>{reason.reason}</p>
+      <div ref={downRef} className="downloadBox">
+        <Header />
+        <div>
+          <p>학교: {school.school}</p>
+          <p>학번: {school.number}</p>
+          <p>이름: {privacy.name}</p>
+          <p>전화번호: {privacy.phone}</p>
+          <p>사유: {reason.reason}</p>
+        </div>
         <br />
       </div>
-      <div>
+      <div className="btnBox">
         <button onClick={handleBack}>이전</button>
         <button onClick={downloadBtn}>다운로드</button>
       </div>
